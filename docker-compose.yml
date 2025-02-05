@@ -51,6 +51,8 @@ services:
       - app_net
     expose:
       - 6379
+    ports:
+      - "6379:6379"
     restart: on-failure
     healthcheck:
       test: [ "CMD", "redis-cli", "ping" ]

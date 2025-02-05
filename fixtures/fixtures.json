@@ -6,9 +6,7 @@
     "street": "Street 1",
     "city": "Berlin",
     "zip_code": "10115",
-    "country": "Germany",
-    "lat": null,
-    "lon": null
+    "country": "Germany"
   }
 },
 {
@@ -18,9 +16,7 @@
     "street": "Street 10",
     "city": "Paris",
     "zip_code": "75001",
-    "country": "France",
-    "lat": null,
-    "lon": null
+    "country": "France"
   }
 },
 {
@@ -30,9 +26,7 @@
     "street": "Street 2",
     "city": "Hamburg",
     "zip_code": "20144",
-    "country": "Germany",
-    "lat": null,
-    "lon": null
+    "country": "Germany"
   }
 },
 {
@@ -42,9 +36,7 @@
     "street": "Street 20",
     "city": "Brussels",
     "zip_code": "1000",
-    "country": "Belgium",
-    "lat": null,
-    "lon": null
+    "country": "Belgium"
   }
 },
 {
@@ -54,9 +46,7 @@
     "street": "Street 3",
     "city": "Munich",
     "zip_code": "80331",
-    "country": "Germany",
-    "lat": null,
-    "lon": null
+    "country": "Germany"
   }
 },
 {
@@ -66,9 +56,7 @@
     "street": "Street 5",
     "city": "Madrid",
     "zip_code": "28013",
-    "country": "Spain",
-    "lat": null,
-    "lon": null
+    "country": "Spain"
   }
 },
 {
@@ -78,9 +66,7 @@
     "street": "Street 4",
     "city": "Cologne",
     "zip_code": "50667",
-    "country": "Germany",
-    "lat": null,
-    "lon": null
+    "country": "Germany"
   }
 },
 {
@@ -90,9 +76,7 @@
     "street": "Street 9",
     "city": "Amsterdam",
     "zip_code": "1016",
-    "country": "Netherlands",
-    "lat": null,
-    "lon": null
+    "country": "Netherlands"
   }
 },
 {
@@ -102,9 +86,7 @@
     "street": "Street 5",
     "city": "Stuttgart",
     "zip_code": "70173",
-    "country": "Germany",
-    "lat": null,
-    "lon": null
+    "country": "Germany"
   }
 },
 {
@@ -114,9 +96,7 @@
     "street": "Street 15",
     "city": "Copenhagen",
     "zip_code": "1050",
-    "country": "Denmark",
-    "lat": null,
-    "lon": null
+    "country": "Denmark"
   }
 },
 {

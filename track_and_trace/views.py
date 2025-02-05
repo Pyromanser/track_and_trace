@@ -3,8 +3,8 @@ from django_filters import rest_framework as filters
 from drf_spectacular.utils import extend_schema_view, extend_schema
 from rest_framework import viewsets
 
-from track_and_trace.models import Address, Carrier, Shipment, Product, Article
-from track_and_trace.serializers import AddressSerializer, CarrierSerializer, ShipmentSerializer, ProductSerializer, ArticleSerializer
+from track_and_trace.models import Shipment, Article
+from track_and_trace.serializers import ShipmentSerializer
 from track_and_trace.filters import ShipmentFilterSet
 
 

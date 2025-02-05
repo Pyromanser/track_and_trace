@@ -20,8 +20,6 @@ class Migration(migrations.Migration):
                 ('city', models.CharField(max_length=255)),
                 ('zip_code', models.CharField(max_length=10)),
                 ('country', models.CharField(max_length=100)),
-                ('lat', models.DecimalField(blank=True, decimal_places=16, max_digits=22, null=True)),
-                ('lon', models.DecimalField(blank=True, decimal_places=16, max_digits=22, null=True)),
             ],
         ),
         migrations.CreateModel(

@@ -1,7 +1,4 @@
-import pycountry
-
 from django.db import models
-from django.utils.functional import cached_property
 
 
 class Address(models.Model):
@@ -10,15 +7,8 @@ class Address(models.Model):
     zip_code = models.CharField(max_length=10)
     country = models.CharField(max_length=100)
 
-    lat = models.DecimalField(max_digits=22, decimal_places=16, null=True, blank=True)
-    lon = models.DecimalField(max_digits=22, decimal_places=16, null=True, blank=True)
-
     def __str__(self):
         return f"{self.street}, {self.zip_code} {self.city}, {self.country}"
-
-    @cached_property
-    def country_code(self):
-        return pycountry.countries.get(name=self.country).alpha_2
 
 class Carrier(models.Model):
     name = models.CharField(max_length=100)
