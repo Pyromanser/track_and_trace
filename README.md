@@ -6,6 +6,12 @@ The project implements the ability to receive information about the order and th
 
 ## Setup and run
 
+1. create a `.env` from the `example.env` file:
+    ```bash
+    cp example.env .env
+    ```
+2. fill environment variables in `.env` file.
+
 - Use `make run` to start the API
 - Use `make down` to stop the API
 - Use `make load-fixtures` to load fixtures
