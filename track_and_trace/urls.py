@@ -5,9 +5,9 @@ from rest_framework import routers
 from track_and_trace import views
 
 router = routers.DefaultRouter()
-router.register(r'shipments', views.ShipmentViewSet)
+router.register(r"shipments", views.ShipmentViewSet)
 
-app_name = 'track_and_trace'
+app_name = "track_and_trace"
 urlpatterns = [
-    path('', include(router.urls)),
+    path("", include(router.urls)),
 ]

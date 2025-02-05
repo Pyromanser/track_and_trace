@@ -10,16 +10,16 @@ from track_and_trace.filters import ShipmentFilterSet
 
 @extend_schema_view(
     list=extend_schema(
-        description='List all shipments',
+        description="List all shipments",
     ),
     retrieve=extend_schema(
-        description='Retrieve a shipment',
+        description="Retrieve a shipment",
     ),
     create=extend_schema(
-        description='Create a shipment',
+        description="Create a shipment",
     ),
     destroy=extend_schema(
-        description='Delete a shipment',
+        description="Delete a shipment",
     ),
 )
 class ShipmentViewSet(
@@ -27,7 +27,7 @@ class ShipmentViewSet(
     mixins.RetrieveModelMixin,
     mixins.DestroyModelMixin,
     mixins.ListModelMixin,
-    GenericViewSet
+    GenericViewSet,
 ):
     queryset = Shipment.objects.none()
     serializer_class = ShipmentSerializer
@@ -36,7 +36,7 @@ class ShipmentViewSet(
 
     def get_queryset(self):
         return Shipment.objects.select_related(
-            'carrier', 'sender_address', 'receiver_address'
+            "carrier", "sender_address", "receiver_address"
         ).prefetch_related(
-            Prefetch('articles', queryset=Article.objects.select_related('article'))
+            Prefetch("articles", queryset=Article.objects.select_related("article"))
         )

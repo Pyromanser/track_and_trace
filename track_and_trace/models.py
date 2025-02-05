@@ -29,24 +29,32 @@ class Address(models.Model):
         lat, lon = coordinates
         return get_weather(lat, lon)
 
+
 class Carrier(models.Model):
     name = models.CharField(max_length=100)
 
     def __str__(self):
         return self.name
 
+
 class Shipment(LifecycleModel):
     class Status(models.TextChoices):
-        IN_TRANSIT = 'in-transit', 'In Transit'
-        INBOUND_SCAN = 'inbound-scan', 'Inbound Scan'
-        DELIVERY = 'delivery', 'Delivery'
-        TRANSIT = 'transit', 'Transit'
-        SCANNED = 'scanned', 'Scanned'
+        IN_TRANSIT = "in-transit", "In Transit"
+        INBOUND_SCAN = "inbound-scan", "Inbound Scan"
+        DELIVERY = "delivery", "Delivery"
+        TRANSIT = "transit", "Transit"
+        SCANNED = "scanned", "Scanned"
 
     tracking_number = models.CharField(max_length=20)
-    carrier = models.ForeignKey(Carrier, related_name='shipments', on_delete=models.CASCADE)
-    sender_address = models.ForeignKey(Address, related_name='sender_shipments', on_delete=models.CASCADE)
-    receiver_address = models.ForeignKey(Address, related_name='receiver_shipments', on_delete=models.CASCADE)
+    carrier = models.ForeignKey(
+        Carrier, related_name="shipments", on_delete=models.CASCADE
+    )
+    sender_address = models.ForeignKey(
+        Address, related_name="sender_shipments", on_delete=models.CASCADE
+    )
+    receiver_address = models.ForeignKey(
+        Address, related_name="receiver_shipments", on_delete=models.CASCADE
+    )
     status = models.CharField(max_length=20, choices=Status.choices)
 
     def __str__(self):
@@ -63,9 +71,13 @@ class Shipment(LifecycleModel):
     def on_create(self):
         self._update_weather()
 
-    @hook(AFTER_UPDATE, condition=WhenFieldHasChanged('receiver_address', has_changed=True))
+    @hook(
+        AFTER_UPDATE,
+        condition=WhenFieldHasChanged("receiver_address", has_changed=True),
+    )
     def on_receiver_address_change(self):
         self._update_weather()
+
 
 class Product(models.Model):
     name = models.CharField(max_length=100)
@@ -75,10 +87,15 @@ class Product(models.Model):
     def __str__(self):
         return f"{self.name} ({self.SKU})"
 
+
 class Article(models.Model):
-    shipment = models.ForeignKey(Shipment, related_name='articles', on_delete=models.CASCADE)
+    shipment = models.ForeignKey(
+        Shipment, related_name="articles", on_delete=models.CASCADE
+    )
     article_quantity = models.PositiveSmallIntegerField()
-    article = models.ForeignKey(Product, related_name='articles', on_delete=models.CASCADE)
+    article = models.ForeignKey(
+        Product, related_name="articles", on_delete=models.CASCADE
+    )
 
     def __str__(self):
         return f"{self.article.name}, {self.article_quantity}"
