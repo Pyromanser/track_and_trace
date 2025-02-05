@@ -1,7 +1,7 @@
 from django.db.models import Prefetch
 from django_filters import rest_framework as filters
 from drf_spectacular.utils import extend_schema_view, extend_schema
-from rest_framework import viewsets
+from rest_framework.viewsets import GenericViewSet, mixins
 
 from track_and_trace.models import Shipment, Article
 from track_and_trace.serializers import ShipmentSerializer
@@ -18,17 +18,17 @@ from track_and_trace.filters import ShipmentFilterSet
     create=extend_schema(
         description='Create a shipment',
     ),
-    update=extend_schema(
-        description='Update a shipment',
-    ),
-    partial_update=extend_schema(
-        description='Partially update a shipment',
-    ),
     destroy=extend_schema(
         description='Delete a shipment',
     ),
 )
-class ShipmentViewSet(viewsets.ModelViewSet):
+class ShipmentViewSet(
+    mixins.CreateModelMixin,
+    mixins.RetrieveModelMixin,
+    mixins.DestroyModelMixin,
+    mixins.ListModelMixin,
+    GenericViewSet
+):
     queryset = Shipment.objects.none()
     serializer_class = ShipmentSerializer
     filter_backends = (filters.DjangoFilterBackend,)
