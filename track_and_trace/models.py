@@ -54,7 +54,7 @@ class Shipment(LifecycleModel):
 
     @property
     def weather(self) -> Optional[dict]:
-        return self.sender_address.weather
+        return self.receiver_address.weather
 
     def _update_weather(self):
         return self.weather

@@ -5,6 +5,7 @@ django-lifecycle==1.2.4
 djangorestframework==3.15.2
 drf-spectacular==0.28.0
 django-cache-memoize==0.2.1
+celery==5.4.0
 requests==2.32.3
 psycopg [c]==3.2.4
 redis [hiredis]==5.2.1

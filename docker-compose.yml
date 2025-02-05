@@ -1,9 +1,8 @@
 services:
-  app:
+  app: &app
     container_name: app
     build: .
     volumes:
-#      - .:/home/appuser/app
       - ./core:/home/appuser/app/core
       - ./track_and_trace:/home/appuser/app/track_and_trace
     ports:
@@ -11,6 +10,7 @@ services:
     depends_on:
       - db
       - redis
+      - rabbitmq
     networks:
       - app_net
     env_file:
@@ -60,9 +60,39 @@ services:
       timeout: 5s
       retries: 5
 
+  rabbitmq:
+    container_name: rabbitmq
+    image: rabbitmq:4-alpine
+    restart: on-failure
+    networks:
+      - app_net
+    expose:
+      - 4369
+      - 5671
+      - 5672
+      - 15672
+      - 25672
+    volumes:
+      - rabbitmq_data:/var/lib/rabbitmq
+    healthcheck:
+      test: ["CMD", "nc", "-z", "localhost", "5672"]
+      interval: 5s
+      timeout: 15s
+      retries: 1
+
+  celery:
+    <<: *app
+    container_name: celery
+    expose: []
+    ports: []
+    environment:
+      C_FORCE_ROOT: 'true'
+    command: celery -A core worker -B -l INFO
+
 networks:
   app_net:
 
 volumes:
   db_data:
   redis:
+  rabbitmq_data:

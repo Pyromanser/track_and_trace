@@ -59,6 +59,7 @@ INSTALLED_APPS = [
 if DEBUG:
     INSTALLED_APPS += [
         'silk',
+        'django_extensions',
     ]
 
 MIDDLEWARE = [
@@ -218,6 +219,18 @@ SPECTACULAR_SETTINGS = {
     'DESCRIPTION': 'POC for a Track and Trace API',
     'VERSION': '0.0.1',
     'SERVE_INCLUDE_SCHEMA': False,
+}
+
+
+# Celery
+CELERY_BROKER_URL = env('AMQP_URL')
+CELERY_RESULT_BACKEND = env('REDIS_URL')
+CELERY_TASK_RESULT_EXPIRES = 3600
+CELERY_BEAT_SCHEDULE = {
+    'update_weather': {
+        'task': 'track_and_trace.tasks.update_weather',
+        'schedule': 60 * 60 * 2,
+    }
 }
 
 # Open Weather Map API
