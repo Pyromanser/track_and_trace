@@ -3,7 +3,6 @@ from drf_spectacular.utils import extend_schema_field
 from rest_framework import serializers
 
 from track_and_trace.models import Address, Carrier, Shipment, Product, Article
-from track_and_trace.utils import get_country_code, get_coordinates, get_weather
 
 
 class AddressSerializer(serializers.ModelSerializer):
@@ -63,14 +62,4 @@ class ShipmentSerializer(serializers.ModelSerializer):
 
     @extend_schema_field(serializers.DictField)
     def get_weather(self, obj):
-        sender_address = obj.sender_address
-        country_code = get_country_code(sender_address.country)
-        if not country_code:
-            return None
-
-        coordinates = get_coordinates(sender_address.zip_code, country_code)
-        if not coordinates:
-            return None
-
-        lat, lon = coordinates
-        return get_weather(lat, lon)
+        return obj.weather
