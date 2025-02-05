@@ -1,0 +1,365 @@
+[
+{
+  "model": "track_and_trace.address",
+  "pk": 1,
+  "fields": {
+    "street": "Street 1",
+    "city": "Berlin",
+    "zip_code": "10115",
+    "country": "Germany",
+    "lat": null,
+    "lon": null
+  }
+},
+{
+  "model": "track_and_trace.address",
+  "pk": 2,
+  "fields": {
+    "street": "Street 10",
+    "city": "Paris",
+    "zip_code": "75001",
+    "country": "France",
+    "lat": null,
+    "lon": null
+  }
+},
+{
+  "model": "track_and_trace.address",
+  "pk": 3,
+  "fields": {
+    "street": "Street 2",
+    "city": "Hamburg",
+    "zip_code": "20144",
+    "country": "Germany",
+    "lat": null,
+    "lon": null
+  }
+},
+{
+  "model": "track_and_trace.address",
+  "pk": 4,
+  "fields": {
+    "street": "Street 20",
+    "city": "Brussels",
+    "zip_code": "1000",
+    "country": "Belgium",
+    "lat": null,
+    "lon": null
+  }
+},
+{
+  "model": "track_and_trace.address",
+  "pk": 5,
+  "fields": {
+    "street": "Street 3",
+    "city": "Munich",
+    "zip_code": "80331",
+    "country": "Germany",
+    "lat": null,
+    "lon": null
+  }
+},
+{
+  "model": "track_and_trace.address",
+  "pk": 6,
+  "fields": {
+    "street": "Street 5",
+    "city": "Madrid",
+    "zip_code": "28013",
+    "country": "Spain",
+    "lat": null,
+    "lon": null
+  }
+},
+{
+  "model": "track_and_trace.address",
+  "pk": 7,
+  "fields": {
+    "street": "Street 4",
+    "city": "Cologne",
+    "zip_code": "50667",
+    "country": "Germany",
+    "lat": null,
+    "lon": null
+  }
+},
+{
+  "model": "track_and_trace.address",
+  "pk": 8,
+  "fields": {
+    "street": "Street 9",
+    "city": "Amsterdam",
+    "zip_code": "1016",
+    "country": "Netherlands",
+    "lat": null,
+    "lon": null
+  }
+},
+{
+  "model": "track_and_trace.address",
+  "pk": 9,
+  "fields": {
+    "street": "Street 5",
+    "city": "Stuttgart",
+    "zip_code": "70173",
+    "country": "Germany",
+    "lat": null,
+    "lon": null
+  }
+},
+{
+  "model": "track_and_trace.address",
+  "pk": 10,
+  "fields": {
+    "street": "Street 15",
+    "city": "Copenhagen",
+    "zip_code": "1050",
+    "country": "Denmark",
+    "lat": null,
+    "lon": null
+  }
+},
+{
+  "model": "track_and_trace.carrier",
+  "pk": 1,
+  "fields": {
+    "name": "DHL"
+  }
+},
+{
+  "model": "track_and_trace.carrier",
+  "pk": 2,
+  "fields": {
+    "name": "UPS"
+  }
+},
+{
+  "model": "track_and_trace.carrier",
+  "pk": 3,
+  "fields": {
+    "name": "DPD"
+  }
+},
+{
+  "model": "track_and_trace.carrier",
+  "pk": 4,
+  "fields": {
+    "name": "FedEx"
+  }
+},
+{
+  "model": "track_and_trace.carrier",
+  "pk": 5,
+  "fields": {
+    "name": "GLS"
+  }
+},
+{
+  "model": "track_and_trace.shipment",
+  "pk": 1,
+  "fields": {
+    "tracking_number": "TN12345678",
+    "carrier": 1,
+    "sender_address": 1,
+    "receiver_address": 2,
+    "status": "in-transit"
+  }
+},
+{
+  "model": "track_and_trace.shipment",
+  "pk": 2,
+  "fields": {
+    "tracking_number": "TN12345679",
+    "carrier": 2,
+    "sender_address": 3,
+    "receiver_address": 4,
+    "status": "inbound-scan"
+  }
+},
+{
+  "model": "track_and_trace.shipment",
+  "pk": 3,
+  "fields": {
+    "tracking_number": "TN12345680",
+    "carrier": 3,
+    "sender_address": 5,
+    "receiver_address": 6,
+    "status": "delivery"
+  }
+},
+{
+  "model": "track_and_trace.shipment",
+  "pk": 4,
+  "fields": {
+    "tracking_number": "TN12345681",
+    "carrier": 4,
+    "sender_address": 7,
+    "receiver_address": 8,
+    "status": "transit"
+  }
+},
+{
+  "model": "track_and_trace.shipment",
+  "pk": 5,
+  "fields": {
+    "tracking_number": "TN12345682",
+    "carrier": 5,
+    "sender_address": 9,
+    "receiver_address": 10,
+    "status": "scanned"
+  }
+},
+{
+  "model": "track_and_trace.product",
+  "pk": 1,
+  "fields": {
+    "name": "Laptop",
+    "price": "800.00",
+    "SKU": "LP123"
+  }
+},
+{
+  "model": "track_and_trace.product",
+  "pk": 2,
+  "fields": {
+    "name": "Mouse",
+    "price": "25.00",
+    "SKU": "MO456"
+  }
+},
+{
+  "model": "track_and_trace.product",
+  "pk": 3,
+  "fields": {
+    "name": "Monitor",
+    "price": "200.00",
+    "SKU": "MT789"
+  }
+},
+{
+  "model": "track_and_trace.product",
+  "pk": 4,
+  "fields": {
+    "name": "Keyboard",
+    "price": "50.00",
+    "SKU": "KB012"
+  }
+},
+{
+  "model": "track_and_trace.product",
+  "pk": 5,
+  "fields": {
+    "name": "Laptop",
+    "price": "900.00",
+    "SKU": "LP345"
+  }
+},
+{
+  "model": "track_and_trace.product",
+  "pk": 6,
+  "fields": {
+    "name": "Headphones",
+    "price": "100.00",
+    "SKU": "HP678"
+  }
+},
+{
+  "model": "track_and_trace.product",
+  "pk": 7,
+  "fields": {
+    "name": "Smartphone",
+    "price": "500.00",
+    "SKU": "SP901"
+  }
+},
+{
+  "model": "track_and_trace.product",
+  "pk": 8,
+  "fields": {
+    "name": "Charger",
+    "price": "20.00",
+    "SKU": "CH234"
+  }
+},
+{
+  "model": "track_and_trace.article",
+  "pk": 1,
+  "fields": {
+    "shipment": 1,
+    "article_quantity": 1,
+    "article": 1
+  }
+},
+{
+  "model": "track_and_trace.article",
+  "pk": 2,
+  "fields": {
+    "shipment": 1,
+    "article_quantity": 1,
+    "article": 2
+  }
+},
+{
+  "model": "track_and_trace.article",
+  "pk": 3,
+  "fields": {
+    "shipment": 2,
+    "article_quantity": 2,
+    "article": 3
+  }
+},
+{
+  "model": "track_and_trace.article",
+  "pk": 4,
+  "fields": {
+    "shipment": 3,
+    "article_quantity": 1,
+    "article": 4
+  }
+},
+{
+  "model": "track_and_trace.article",
+  "pk": 5,
+  "fields": {
+    "shipment": 3,
+    "article_quantity": 1,
+    "article": 2
+  }
+},
+{
+  "model": "track_and_trace.article",
+  "pk": 6,
+  "fields": {
+    "shipment": 4,
+    "article_quantity": 1,
+    "article": 5
+  }
+},
+{
+  "model": "track_and_trace.article",
+  "pk": 7,
+  "fields": {
+    "shipment": 4,
+    "article_quantity": 1,
+    "article": 6
+  }
+},
+{
+  "model": "track_and_trace.article",
+  "pk": 8,
+  "fields": {
+    "shipment": 5,
+    "article_quantity": 1,
+    "article": 7
+  }
+},
+{
+  "model": "track_and_trace.article",
+  "pk": 9,
+  "fields": {
+    "shipment": 5,
+    "article_quantity": 1,
+    "article": 8
+  }
+}
+]
