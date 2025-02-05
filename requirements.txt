@@ -1,0 +1,10 @@
+Django==5.1.5
+django-environ==0.12.0
+django-filter==24.3
+djangorestframework==3.15.2
+drf-spectacular==0.28.0
+django-cache-memoize==0.2.1
+requests==2.32.3
+psycopg [c]==3.2.4
+redis [hiredis]==5.2.1
+pycountry==24.6.1
