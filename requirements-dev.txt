@@ -1,0 +1,2 @@
+-r requirements.txt
+django-silk==5.3.2
