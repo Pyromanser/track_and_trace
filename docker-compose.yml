@@ -1,0 +1,66 @@
+services:
+  app:
+    container_name: app
+    build: .
+    volumes:
+#      - .:/home/appuser/app
+      - ./core:/home/appuser/app/core
+      - ./track_and_trace:/home/appuser/app/track_and_trace
+    ports:
+      - "8000:8000"
+    depends_on:
+      - db
+      - redis
+    networks:
+      - app_net
+    env_file:
+      - .env
+    restart: on-failure
+    healthcheck:
+      test: ["CMD", "curl", "--fail", "http://0.0.0.0:8000/admin/login/"]
+      interval: 1m
+      timeout: 5s
+      retries: 2
+
+  db:
+    container_name: db
+    image: postgres:16-alpine
+    volumes:
+      - db_data:/var/lib/postgresql/data
+    networks:
+      - app_net
+    expose:
+      - 5432
+    ports:
+      - "5432:5432"
+    env_file:
+      - .env
+    restart: on-failure
+    healthcheck:
+      test: [ "CMD", "pg_isready", "-U", "postgres" ]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+
+  redis:
+    container_name: redis
+    image: redis:7-alpine
+    volumes:
+      - redis:/var/lib/redis/data
+    networks:
+      - app_net
+    expose:
+      - 6379
+    restart: on-failure
+    healthcheck:
+      test: [ "CMD", "redis-cli", "ping" ]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+
+networks:
+  app_net:
+
+volumes:
+  db_data:
+  redis:
